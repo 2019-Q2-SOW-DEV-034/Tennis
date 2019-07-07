@@ -39,4 +39,10 @@ public class TennisGameTest {
     public void whenTheGameStartsPlayerTwoNameShouldBeInitializedAsPlayer2Test(){
         assertEquals("Player2", tennisGame.getPlayerTwo().getName());
     }
+
+    @Test
+    @DisplayName("When the Tennis Game starts, current game score should be equal to 'Love-All'")
+    public void whenTheGameStartsGameScoreShouldBeEqualToLoveAllTest(){
+        assertEquals("Love-All", tennisGame.calculateGameScore());
+    }
 }

@@ -19,4 +19,8 @@ public class TennisGame {
     protected Player getPlayerTwo() {
         return playerTwo;
     }
+
+    public String calculateGameScore() {
+        return "Love-All";
+    }
 }
