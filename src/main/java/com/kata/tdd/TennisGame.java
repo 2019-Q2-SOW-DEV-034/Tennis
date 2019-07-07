@@ -6,9 +6,11 @@ public class TennisGame {
     private int playerTwoScoredPoint;
 
     private String playerOneName;
+    private String playerTwoName;
 
     public TennisGame(){
         playerOneName = "Player1";
+        playerTwoName = "Player2";
     }
 
     protected int getPlayerOneScoredPoint() {
@@ -21,5 +23,9 @@ public class TennisGame {
 
     protected String getPlayerOneName() {
         return playerOneName;
+    }
+
+    protected String getPlayerTwoName() {
+        return playerTwoName;
     }
 }
