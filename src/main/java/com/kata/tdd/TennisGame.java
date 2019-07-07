@@ -1,28 +1,27 @@
 package com.kata.tdd;
 
+import com.kata.tdd.model.Player;
+
 public class TennisGame {
 
-    private int playerOneScoredPoint;
     private int playerTwoScoredPoint;
-
-    private String playerOneName;
     private String playerTwoName;
 
+    private Player playerOne;
+
     public TennisGame(){
-        playerOneName = "Player1";
+        playerOne = new Player();
+        playerOne.setName("Player1");
+
         playerTwoName = "Player2";
     }
 
-    protected int getPlayerOneScoredPoint() {
-        return playerOneScoredPoint;
+    protected Player getPlayerOne() {
+        return playerOne;
     }
 
     protected int getPlayerTwoScoredPoint() {
         return playerTwoScoredPoint;
-    }
-
-    protected String getPlayerOneName() {
-        return playerOneName;
     }
 
     protected String getPlayerTwoName() {
