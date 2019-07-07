@@ -86,6 +86,15 @@ public class TennisGameTest {
         assertEquals(gameScore, tennisGame.calculateGameScore());
     }
 
+    @Test
+    @DisplayName("A game is Won by a player1 to have won at least four points in total and at least two points more than the player2")
+    public void whenAPlayer1ScoresMinimumFourPointsInTotalAndMinimumTwoPointsMoreThanThePlayer2ThenGameIsWonByThatPlayer1() {
+        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerOne(), 4);
+        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerTwo(), 2);
+
+        assertEquals("Player1 won the game", tennisGame.calculateGameScore());
+    }
+
     private void updatePlayerScoreBasedOnNumberOfWins(Player player, int numberOfWins){
         for(int index=0; index < numberOfWins; index++){
             player.incrementPlayerScore();

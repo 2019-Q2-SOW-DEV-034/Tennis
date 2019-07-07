@@ -25,6 +25,8 @@ public class TennisGame {
     protected String calculateGameScore() {
         if (playerOne.getScoredPoint() == playerTwo.getScoredPoint()) {
             return score[playerOne.getScoredPoint()] + "-All";
+        } else if (playerOne.getScoredPoint() >= 4 && (playerOne.getScoredPoint() - playerTwo.getScoredPoint() >= 2)) {
+            return "Player1 won the game";
         } else {
             return score[playerOne.getScoredPoint()] + "-" + score[playerTwo.getScoredPoint()];
         }
