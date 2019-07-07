@@ -53,4 +53,13 @@ public class TennisGameTest {
 
         assertEquals("Fifteen-Love", tennisGame.calculateGameScore());
     }
+
+    @Test
+    @DisplayName("When the Player2 scored two points and player1 scored zero point then game score should be equal to 'Love-Thirty'")
+    public void whenPlayerTwoWonTwoPointsThenGameScoreShouldBeLoveThirtyTest() {
+        tennisGame.getPlayerTwo().incrementPlayerScore();
+        tennisGame.getPlayerTwo().incrementPlayerScore();
+
+        assertEquals("Love-Thirty", tennisGame.calculateGameScore());
+    }
 }
