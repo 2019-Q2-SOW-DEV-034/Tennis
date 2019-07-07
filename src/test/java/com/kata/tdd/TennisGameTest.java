@@ -79,7 +79,7 @@ public class TennisGameTest {
             "2,1,Thirty-Fifteen", "1,3,Fifteen-Forty", "2,3,Thirty-Forty", "3,2,Forty-Thirty", "2,2,Thirty-All"})
     @DisplayName("The running score of each game is described in a manner peculiar to tennis:" +
             " scores from zero to three points are described as “love”, “fifteen”, “thirty”, and “forty” respectively")
-    public void runningScoreShouldBeDescribedInAMannerPeculiarToTennis(int player1Points, int player2Points, String gameScore) {
+    public void runningScoreShouldBeDescribedInAMannerPeculiarToTennisTest(int player1Points, int player2Points, String gameScore) {
         updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerOne(), player1Points);
         updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerTwo(), player2Points);
 
@@ -88,11 +88,20 @@ public class TennisGameTest {
 
     @Test
     @DisplayName("A game is Won by a player1 to have won at least four points in total and at least two points more than the player2")
-    public void whenAPlayer1ScoresMinimumFourPointsInTotalAndMinimumTwoPointsMoreThanThePlayer2ThenGameIsWonByThatPlayer1() {
+    public void whenAPlayer1ScoresMinimumFourPointsInTotalAndMinimumTwoPointsMoreThanThePlayer2ThenGameIsWonByThatPlayer1Test() {
         updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerOne(), 4);
         updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerTwo(), 2);
 
         assertEquals("Player1 won the game", tennisGame.calculateGameScore());
+    }
+
+    @Test
+    @DisplayName("A game is Won by a player2 to have won at least four points in total and at least two points more than the player1")
+    public void whenAPlayer2ScoresMinimumFourPointsInTotalAndMinimumTwoPointsMoreThanThePlayer1ThenGameIsWonByThatPlayer2Test() {
+        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerOne(), 2);
+        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerTwo(), 4);
+
+        assertEquals("Player2 won the game", tennisGame.calculateGameScore());
     }
 
     private void updatePlayerScoreBasedOnNumberOfWins(Player player, int numberOfWins){

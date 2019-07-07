@@ -27,6 +27,8 @@ public class TennisGame {
             return score[playerOne.getScoredPoint()] + "-All";
         } else if (playerOne.getScoredPoint() >= 4 && (playerOne.getScoredPoint() - playerTwo.getScoredPoint() >= 2)) {
             return "Player1 won the game";
+        } else if (playerTwo.getScoredPoint() >= 4 && (playerTwo.getScoredPoint() - playerOne.getScoredPoint() >= 2)) {
+            return "Player2 won the game";
         } else {
             return score[playerOne.getScoredPoint()] + "-" + score[playerTwo.getScoredPoint()];
         }
