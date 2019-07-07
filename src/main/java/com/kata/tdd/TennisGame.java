@@ -4,7 +4,7 @@ import com.kata.tdd.model.Player;
 
 public class TennisGame {
 
-    private static final String[] score = {"Love", "Fifteen", "Thirty"};
+    private static final String[] score = {"Love", "Fifteen", "Thirty","Forty"};
 
     private Player playerOne;
     private Player playerTwo;

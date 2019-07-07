@@ -1,5 +1,6 @@
 package com.kata.tdd;
 
+import com.kata.tdd.model.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -57,9 +58,23 @@ public class TennisGameTest {
     @Test
     @DisplayName("When the Player2 scored two points and player1 scored zero point then game score should be equal to 'Love-Thirty'")
     public void whenPlayerTwoWonTwoPointsThenGameScoreShouldBeLoveThirtyTest() {
-        tennisGame.getPlayerTwo().incrementPlayerScore();
-        tennisGame.getPlayerTwo().incrementPlayerScore();
+        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerTwo(), 2);
 
         assertEquals("Love-Thirty", tennisGame.calculateGameScore());
+    }
+
+    @Test
+    @DisplayName("When the Player1 scored three points and Player2 scored 2 points then game score should be equal to Forty-Thirty")
+    public void whenPlayer1WinsThreeServicesAndPlayer2WinsTwoServicesThenGameStatusShouldBeEqualToFortyThirtyTest() {
+        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerOne(), 3);
+        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerTwo(), 2);
+
+        assertEquals("Forty-Thirty", tennisGame.calculateGameScore());
+    }
+
+    private void updatePlayerScoreBasedOnNumberOfWins(Player player, int numberOfWins){
+        for(int index=0; index < numberOfWins; index++){
+            player.incrementPlayerScore();
+        }
     }
 }
