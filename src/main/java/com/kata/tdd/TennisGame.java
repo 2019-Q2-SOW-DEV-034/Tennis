@@ -4,27 +4,22 @@ import com.kata.tdd.model.Player;
 
 public class TennisGame {
 
-    private int playerTwoScoredPoint;
-    private String playerTwoName;
-
     private Player playerOne;
+    private Player playerTwo;
 
     public TennisGame(){
         playerOne = new Player();
         playerOne.setName("Player1");
 
-        playerTwoName = "Player2";
+        playerTwo = new Player();
+        playerTwo.setName("Player2");
     }
 
     protected Player getPlayerOne() {
         return playerOne;
     }
 
-    protected int getPlayerTwoScoredPoint() {
-        return playerTwoScoredPoint;
-    }
-
-    protected String getPlayerTwoName() {
-        return playerTwoName;
+    protected Player getPlayerTwo() {
+        return playerTwo;
     }
 }

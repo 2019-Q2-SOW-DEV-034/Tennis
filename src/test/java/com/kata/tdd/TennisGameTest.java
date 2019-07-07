@@ -25,7 +25,7 @@ public class TennisGameTest {
     @Test
     @DisplayName("When the Tennis Game start, player two scored point should be equal to zero")
     public void whenTheGameStartsPlayerTwoScoredPointShouldBeEqualToZeroTest(){
-        assertEquals(0, tennisGame.getPlayerTwoScoredPoint());
+        assertEquals(0, tennisGame.getPlayerTwo().getScoredPoint());
     }
 
     @Test
@@ -37,6 +37,6 @@ public class TennisGameTest {
     @Test
     @DisplayName("When the Tennis Game start, player two name should be initialized as 'Player2'")
     public void whenTheGameStartsPlayerTwoNameShouldBeInitializedAsPlayer2Test(){
-        assertEquals("Player2", tennisGame.getPlayerTwoName());
+        assertEquals("Player2", tennisGame.getPlayerTwo().getName());
     }
 }
