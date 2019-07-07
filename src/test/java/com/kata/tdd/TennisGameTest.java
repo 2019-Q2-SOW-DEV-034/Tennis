@@ -9,9 +9,17 @@ public class TennisGameTest {
 
     @Test
     @DisplayName("When the Tennis Game start, player one scored point should be equal to zero")
-    public void whenTheGameStartsPlayerOneScoredPointShouldBeEqualToZero(){
+    public void whenTheGameStartsPlayerOneScoredPointShouldBeEqualToZeroTest(){
         TennisGame tennisGame = new TennisGame();
 
         assertEquals(0, tennisGame.getPlayerOneScoredPoint());
+    }
+
+    @Test
+    @DisplayName("When the Tennis Game start, player two scored point should be equal to zero")
+    public void whenTheGameStartsPlayerTwoScoredPointShouldBeEqualToZeroTest(){
+        TennisGame tennisGame = new TennisGame();
+
+        assertEquals(0, tennisGame.getPlayerTwoScoredPoint());
     }
 }
