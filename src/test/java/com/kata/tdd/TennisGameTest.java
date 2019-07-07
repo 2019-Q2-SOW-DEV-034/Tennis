@@ -1,13 +1,17 @@
 package com.kata.tdd;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class TennisGameTest {
+public class TennisGameTest {
 
     @Test
-    void projectSetUpTest(){
-        assertTrue(true);
+    @DisplayName("When the Tennis Game start, player one scored point should be equal to zero")
+    public void whenTheGameStartsPlayerOneScoredPointShouldBeEqualToZero(){
+        TennisGame tennisGame = new TennisGame();
+
+        assertEquals(0, tennisGame.getPlayerOneScoredPoint());
     }
 }
