@@ -22,4 +22,12 @@ public class TennisGameTest {
 
         assertEquals(0, tennisGame.getPlayerTwoScoredPoint());
     }
+
+    @Test
+    @DisplayName("When the Tennis Game start, player one name should be initialized as 'Player1'")
+    public void whenTheGameStartsPlayerOneNameShouldBeInitializedAsPlayer1Test(){
+        TennisGame tennisGame = new TennisGame();
+
+        assertEquals("Player1", tennisGame.getPlayerOneName());
+    }
 }
