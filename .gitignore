@@ -1,0 +1,6 @@
+# IntelliJ config files #
+.idea/
+*.iml
+
+# Target folder- compiled files #
+/target/
