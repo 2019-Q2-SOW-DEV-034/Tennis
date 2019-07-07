@@ -25,12 +25,18 @@ public class TennisGame {
     protected String calculateGameScore() {
         if (playerOne.getScoredPoint() == playerTwo.getScoredPoint()) {
             return score[playerOne.getScoredPoint()] + "-All";
-        } else if (playerOne.getScoredPoint() >= 4 && (playerOne.getScoredPoint() - playerTwo.getScoredPoint() >= 2)) {
-            return "Player1 won the game";
-        } else if (playerTwo.getScoredPoint() >= 4 && (playerTwo.getScoredPoint() - playerOne.getScoredPoint() >= 2)) {
-            return "Player2 won the game";
+        } else if (isGameWonByAnyPlayer()){
+            return getTopScorerName() + " won the game";
         } else {
             return score[playerOne.getScoredPoint()] + "-" + score[playerTwo.getScoredPoint()];
         }
+    }
+
+    private boolean isGameWonByAnyPlayer(){
+        return (playerOne.getScoredPoint() >= 4 || playerTwo.getScoredPoint() >= 4) && (Math.abs(playerOne.getScoredPoint() - playerTwo.getScoredPoint())>=2);
+    }
+
+    private String getTopScorerName() {
+        return playerOne.getScoredPoint() > playerTwo.getScoredPoint() ? playerOne.getName() : playerTwo.getName();
     }
 }
