@@ -5,6 +5,10 @@ public class TennisGameConstants {
     public static final int ADVANTAGE_DIFFERENCE_POINT = 1;
     public static final int MINIMUM_DEUCE_POINT = 3;
 
+    public static final int PLAYER_ONE_WINNING_INDICATOR = 1;
+    public static final int PLAYER_TWO_WINNING_INDICATOR = 2;
+
+
     public static final char HYPHEN = '-';
     public static final String WON_THE_MATCH = " won the game";
     public static final String DEUCE = "Deuce";

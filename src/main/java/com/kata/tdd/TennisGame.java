@@ -65,12 +65,16 @@ public class TennisGame {
     }
 
     protected void addCurrentServicePointToWinner(int winningIndicator) {
-        if (1 == winningIndicator) {
-            playerOne.incrementPlayerScore();
-        } else if (2 == winningIndicator) {
-            playerTwo.incrementPlayerScore();
-        } else {
-            throw new IllegalArgumentException("Winning indicator should be either 1 or 2");
+
+        switch (winningIndicator) {
+            case PLAYER_ONE_WINNING_INDICATOR:
+                playerOne.incrementPlayerScore();
+                break;
+            case PLAYER_TWO_WINNING_INDICATOR:
+                playerTwo.incrementPlayerScore();
+                break;
+            default:
+                throw new IllegalArgumentException("Winning indicator should be either 1 or 2");
         }
     }
 }
