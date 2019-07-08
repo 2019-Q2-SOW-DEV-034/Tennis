@@ -67,6 +67,8 @@ public class TennisGame {
     protected void addCurrentServicePointToWinner(int winningIndicator) {
         if (1 == winningIndicator) {
             playerOne.incrementPlayerScore();
+        } else {
+            playerTwo.incrementPlayerScore();
         }
     }
 }

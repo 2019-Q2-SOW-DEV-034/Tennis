@@ -157,6 +157,17 @@ public class TennisGameTest {
         assertEquals(expectedPlayerOnePoint, tennisGame.getPlayerOne().getScoredPoint());
     }
 
+    @Test
+    @DisplayName("If the winning indicator is two then PlayerTwo point should be incremented by one")
+    public void whenTheWinningIndicatorIsTwoThenPlayer2PointShouldBeIncrementByOneTest() {
+        updatePlayerScore(2, 1);
+        int expectedPlayerOnePoint = tennisGame.getPlayerTwo().getScoredPoint() + 1;
+
+        tennisGame.addCurrentServicePointToWinner(2);
+
+        assertEquals(expectedPlayerOnePoint, tennisGame.getPlayerTwo().getScoredPoint());
+    }
+
     private void prepareAndAssertCalculateGameScore(int player1Points, int player2Points, String gameScore) {
         updatePlayerScore(player1Points, player2Points);
 
