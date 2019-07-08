@@ -68,10 +68,7 @@ public class TennisGameTest {
     @Test
     @DisplayName("When the Player1 scored three points and Player2 scored 2 points then game score should be equal to Forty-Thirty")
     public void whenPlayer1WinsThreeServicesAndPlayer2WinsTwoServicesThenGameStatusShouldBeEqualToFortyThirtyTest() {
-        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerOne(), 3);
-        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerTwo(), 2);
-
-        assertEquals("Forty-Thirty", tennisGame.calculateGameScore());
+        prepareAndAssertCalculateGameScore(3, 2, "Forty-Thirty");
     }
 
     @ParameterizedTest
@@ -80,28 +77,39 @@ public class TennisGameTest {
     @DisplayName("The running score of each game is described in a manner peculiar to tennis:" +
             " scores from zero to three points are described as “love”, “fifteen”, “thirty”, and “forty” respectively")
     public void runningScoreShouldBeDescribedInAMannerPeculiarToTennisTest(int player1Points, int player2Points, String gameScore) {
-        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerOne(), player1Points);
-        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerTwo(), player2Points);
-
-        assertEquals(gameScore, tennisGame.calculateGameScore());
+        prepareAndAssertCalculateGameScore(player1Points, player2Points, gameScore);
     }
 
     @Test
     @DisplayName("A game is Won by a player1 to have won at least four points in total and at least two points more than the player2")
     public void whenAPlayer1ScoresMinimumFourPointsInTotalAndMinimumTwoPointsMoreThanThePlayer2ThenGameIsWonByThatPlayer1Test() {
-        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerOne(), 4);
-        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerTwo(), 2);
-
-        assertEquals("Player1 won the game", tennisGame.calculateGameScore());
+        prepareAndAssertCalculateGameScore(4, 2, "Player1 won the game");
     }
 
     @Test
     @DisplayName("A game is Won by a player2 to have won at least four points in total and at least two points more than the player1")
     public void whenAPlayer2ScoresMinimumFourPointsInTotalAndMinimumTwoPointsMoreThanThePlayer1ThenGameIsWonByThatPlayer2Test() {
-        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerOne(), 2);
-        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerTwo(), 4);
+        prepareAndAssertCalculateGameScore(2, 4, "Player2 won the game");
+    }
 
-        assertEquals("Player2 won the game", tennisGame.calculateGameScore());
+    @ParameterizedTest
+    @CsvSource({"4,0,Player1 won the game", "4,2,Player1 won the game", "6,4,Player1 won the game",
+            "10,8,Player1 won the game", "0,4,Player2 won the game", "1,4,Player2 won the game",
+            "3,5,Player2 won the game", "6,8,Player2 won the game", "9,11,Player2 won the game"})
+    @DisplayName("A game is Won by a player to have won at least four points in total and at least two points more than the opponent")
+    public void whenAPlayerScoresMinimumFourPointsInTotalAndMinimumTwoPointsMoreThanTheOpponentThenGameIsWonByThatPlayer(int player1Points, int player2Points, String gameScore) {
+        prepareAndAssertCalculateGameScore(player1Points, player2Points, gameScore);
+    }
+
+    private void prepareAndAssertCalculateGameScore(int player1Points, int player2Points, String gameScore) {
+        updatePlayerScore(player1Points, player2Points);
+
+        assertEquals(gameScore, tennisGame.calculateGameScore());
+    }
+
+    private void updatePlayerScore(int playerOnePoints, int playerTwoPoints) {
+        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerOne(), playerOnePoints);
+        updatePlayerScoreBasedOnNumberOfWins(tennisGame.getPlayerTwo(), playerTwoPoints);
     }
 
     private void updatePlayerScoreBasedOnNumberOfWins(Player player, int numberOfWins){
