@@ -33,3 +33,17 @@ Git
 1. Clone repository from GIT 'git clone https://github.com/2019-Q2-SOW-DEV-034/Tennis'
 2. Run `mvn clean install`
 ~~~
+
+## Run Test Cases
+
+**IDE**
+~~~
+1. Navigate to Maven Toolbar
+2. Select `test` under lifecycle menu and click on play symbol
+~~~
+
+**Command Prompt**
+~~~
+1. Go to the directory where you have cloned the Tennis program (C:\Study\Workspace\TennisGame)
+2. Run `mvn test`
+~~~
