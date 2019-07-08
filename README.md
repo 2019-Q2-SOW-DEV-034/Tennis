@@ -54,3 +54,10 @@ Git
 2. Run 'mvn clean test' the JaCoCo code coverage report will be generated at target/site/jacoco/*
 3. Open the target/site/jacoco/index.html file, review the code coverage report
 ~~~
+
+**Mutation code coverage Report using PITest Maven plugin**
+~~~
+1. Open the command prompt / terminal from project directory
+2. Run the PITest 'mvn clean test', the Mutation code coverage report will be generated at target/pit-reports/YYYYMMDDHHMI/*
+4. Open the target/pit-reports/yyyyMMddHHmm/index.html file, review the mutation coverage report
+~~~
