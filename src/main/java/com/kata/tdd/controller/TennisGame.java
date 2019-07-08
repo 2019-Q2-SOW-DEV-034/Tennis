@@ -1,4 +1,4 @@
-package com.kata.tdd;
+package com.kata.tdd.controller;
 
 import com.kata.tdd.model.Player;
 
