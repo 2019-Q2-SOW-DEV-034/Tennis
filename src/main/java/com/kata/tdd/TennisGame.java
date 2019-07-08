@@ -25,13 +25,15 @@ public class TennisGame {
     }
 
     protected String calculateGameScore() {
+        String gameScore;
         if (isScoresAreEqual()) {
-            return isMinimumDeucePointScored() ? DEUCE : score[playerOne.getScoredPoint()] + HYPHEN_ALL;
+            gameScore = isMinimumDeucePointScored() ? DEUCE : score[playerOne.getScoredPoint()] + HYPHEN_ALL;
         } else if (isAnyPlayerEligibleToWin()) {
-            return isScoredPointsDifferenceEqualToOne() ? getEligibleWinningPlayerScore(HAS_ADVANTAGE) : getEligibleWinningPlayerScore(WON_THE_MATCH);
+            gameScore = isScoredPointsDifferenceEqualToOne() ? getEligibleWinningPlayerScore(HAS_ADVANTAGE) : getEligibleWinningPlayerScore(WON_THE_MATCH);
         } else {
-            return score[playerOne.getScoredPoint()] + HYPHEN + score[playerTwo.getScoredPoint()];
+            gameScore = score[playerOne.getScoredPoint()] + HYPHEN + score[playerTwo.getScoredPoint()];
         }
+        return gameScore;
     }
 
     private boolean isScoresAreEqual() {
