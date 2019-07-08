@@ -2,6 +2,8 @@ package com.kata.tdd;
 
 import com.kata.tdd.model.Player;
 
+import static com.kata.tdd.constants.TennisGameConstants.*;
+
 public class TennisGame {
 
     private static final String[] score = {"Love", "Fifteen", "Thirty","Forty"};
@@ -10,8 +12,8 @@ public class TennisGame {
     private Player playerTwo;
 
     public TennisGame(){
-        playerOne = new Player("Player1");
-        playerTwo = new Player("Player2");
+        playerOne = new Player(PLAYER_ONE_DEFAULT_NAME);
+        playerTwo = new Player(PLAYER_TWO_DEFAULT_NAME);
     }
 
     protected Player getPlayerOne() {
@@ -24,16 +26,17 @@ public class TennisGame {
 
     protected String calculateGameScore() {
         if (playerOne.getScoredPoint() == playerTwo.getScoredPoint()) {
-            return score[playerOne.getScoredPoint()] + "-All";
+            return score[playerOne.getScoredPoint()] + HYPHEN_ALL;
         } else if (isGameWonByAnyPlayer()){
-            return getTopScorerName() + " won the game";
+            return getTopScorerName() + WON_THE_MATCH;
         } else {
-            return score[playerOne.getScoredPoint()] + "-" + score[playerTwo.getScoredPoint()];
+            return score[playerOne.getScoredPoint()] + HYPHEN + score[playerTwo.getScoredPoint()];
         }
     }
 
     private boolean isGameWonByAnyPlayer(){
-        return (playerOne.getScoredPoint() >= 4 || playerTwo.getScoredPoint() >= 4) && (Math.abs(playerOne.getScoredPoint() - playerTwo.getScoredPoint())>=2);
+        return (playerOne.getScoredPoint() >= MINIMUM_WINNING_SCORE || playerTwo.getScoredPoint() >= MINIMUM_WINNING_SCORE)
+                && (Math.abs(playerOne.getScoredPoint() - playerTwo.getScoredPoint())>= MINIMUM_WINNING_DIFFERENCE_POINT);
     }
 
     private String getTopScorerName() {
