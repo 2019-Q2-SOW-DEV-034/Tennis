@@ -63,4 +63,10 @@ public class TennisGame {
     private String getTopScorerName() {
         return playerOne.getScoredPoint() > playerTwo.getScoredPoint() ? playerOne.getName() : playerTwo.getName();
     }
+
+    protected void addCurrentServicePointToWinner(int winningIndicator) {
+        if (1 == winningIndicator) {
+            playerOne.incrementPlayerScore();
+        }
+    }
 }

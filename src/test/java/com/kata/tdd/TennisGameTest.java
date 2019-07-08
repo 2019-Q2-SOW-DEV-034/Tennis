@@ -141,8 +141,20 @@ public class TennisGameTest {
     @DisplayName("Tennis Game should have possibility to initialize the players with customer names")
     public void whenTheGameStartsTennisGameShouldHavePossibilityToRegisterCustomNameForTwoPlayersTest() {
         tennisGame = new TennisGame("Tom", "John");
+
         assertEquals("Tom", tennisGame.getPlayerOne().getName());
         assertEquals("John", tennisGame.getPlayerTwo().getName());
+    }
+
+    @Test
+    @DisplayName("If the winning indicator is one then PlayerOne point should be incremented by one")
+    public void whenTheWinningIndicatorIsOneThenPlayer1PointShouldBeIncrementByOneTest() {
+        updatePlayerScore(2, 1);
+        int expectedPlayerOnePoint = tennisGame.getPlayerOne().getScoredPoint() + 1;
+
+        tennisGame.addCurrentServicePointToWinner(1);
+
+        assertEquals(expectedPlayerOnePoint, tennisGame.getPlayerOne().getScoredPoint());
     }
 
     private void prepareAndAssertCalculateGameScore(int player1Points, int player2Points, String gameScore) {
