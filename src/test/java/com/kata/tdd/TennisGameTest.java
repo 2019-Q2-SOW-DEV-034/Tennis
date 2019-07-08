@@ -176,6 +176,15 @@ public class TennisGameTest {
         assertThrows(IllegalArgumentException.class, () -> tennisGame.addCurrentServicePointToWinner(4));
     }
 
+    @ParameterizedTest
+    @CsvSource({"0, 0, 1, Fifteen-Love"})
+    @DisplayName("Get Current Service Game score should add current service point to the winner based on the winning indicator and return the newly calculated game score")
+    public void getCurrentServiceGameScoreShouldAddServicePointToWinnerAndReturnNewlyCalculatedGameScore(int player1Points, int player2Points, int winningIndicator, String expectedGameScore) {
+        updatePlayerScore(player1Points, player2Points);
+
+        assertEquals(expectedGameScore, tennisGame.getCurrentServiceGameScore(winningIndicator));
+    }
+
     private void prepareAndAssertCalculateGameScore(int player1Points, int player2Points, String gameScore) {
         updatePlayerScore(player1Points, player2Points);
 

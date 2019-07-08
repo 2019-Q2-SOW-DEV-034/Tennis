@@ -28,6 +28,25 @@ public class TennisGame {
         return playerTwo;
     }
 
+    public String getCurrentServiceGameScore(int winningIndicator) {
+        addCurrentServicePointToWinner(winningIndicator);
+        return calculateGameScore();
+    }
+
+    protected void addCurrentServicePointToWinner(int winningIndicator) {
+
+        switch (winningIndicator) {
+            case PLAYER_ONE_WINNING_INDICATOR:
+                playerOne.incrementPlayerScore();
+                break;
+            case PLAYER_TWO_WINNING_INDICATOR:
+                playerTwo.incrementPlayerScore();
+                break;
+            default:
+                throw new IllegalArgumentException("Winning indicator should be either 1 or 2");
+        }
+    }
+
     protected String calculateGameScore() {
         String gameScore;
         if (isScoresAreEqual()) {
@@ -64,17 +83,4 @@ public class TennisGame {
         return playerOne.getScoredPoint() > playerTwo.getScoredPoint() ? playerOne.getName() : playerTwo.getName();
     }
 
-    protected void addCurrentServicePointToWinner(int winningIndicator) {
-
-        switch (winningIndicator) {
-            case PLAYER_ONE_WINNING_INDICATOR:
-                playerOne.incrementPlayerScore();
-                break;
-            case PLAYER_TWO_WINNING_INDICATOR:
-                playerTwo.incrementPlayerScore();
-                break;
-            default:
-                throw new IllegalArgumentException("Winning indicator should be either 1 or 2");
-        }
-    }
 }
