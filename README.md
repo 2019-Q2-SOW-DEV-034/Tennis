@@ -47,3 +47,10 @@ Git
 1. Go to the directory where you have cloned the Tennis program (C:\Study\Workspace\TennisGame)
 2. Run `mvn test`
 ~~~
+
+**Jacoco code coverage Report using JaCoCo Maven plugin**
+~~~
+1. Open the command prompt / terminal from project directory
+2. Run 'mvn clean test' the JaCoCo code coverage report will be generated at target/site/jacoco/*
+3. Open the target/site/jacoco/index.html file, review the code coverage report
+~~~
