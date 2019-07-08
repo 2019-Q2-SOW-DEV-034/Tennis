@@ -189,7 +189,7 @@ public class TennisGameTest {
             "4, 5, 2, Player2 won the game"
     })
     @DisplayName("Get Current Service Game score should add current service point to the winner based on the winning indicator and return the newly calculated game score")
-    public void getCurrentServiceGameScoreShouldAddServicePointToWinnerAndReturnNewlyCalculatedGameScore(int player1Points, int player2Points, int winningIndicator, String expectedGameScore) {
+    public void getCurrentServiceGameScoreShouldAddServicePointToWinnerAndReturnNewlyCalculatedGameScoreTest(int player1Points, int player2Points, int winningIndicator, String expectedGameScore) {
         updatePlayerScore(player1Points, player2Points);
 
         assertEquals(expectedGameScore, tennisGame.getCurrentServiceGameScore(winningIndicator));
