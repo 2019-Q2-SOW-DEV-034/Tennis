@@ -73,8 +73,15 @@ public class TennisGameTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"1,0,Fifteen-Love", "0,1,Love-Fifteen", "1,1,Fifteen-All", "1,2,Fifteen-Thirty",
-            "2,1,Thirty-Fifteen", "1,3,Fifteen-Forty", "2,3,Thirty-Forty", "3,2,Forty-Thirty", "2,2,Thirty-All"})
+    @CsvSource({
+            "0,1,Love-Fifteen",
+            "1,1,Fifteen-All",
+            "1,2,Fifteen-Thirty",
+            "1,3,Fifteen-Forty",
+            "2,1,Thirty-Fifteen",
+            "2,3,Thirty-Forty",
+            "2,2,Thirty-All",
+            "3,1,Forty-Fifteen"})
     @DisplayName("The running score of each game is described in a manner peculiar to tennis:" +
             " scores from zero to three points are described as “love”, “fifteen”, “thirty”, and “forty” respectively")
     public void runningScoreShouldBeDescribedInAMannerPeculiarToTennisTest(int player1Points, int player2Points, String gameScore) {
@@ -94,9 +101,16 @@ public class TennisGameTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"4,0,Player1 won the game", "4,2,Player1 won the game", "6,4,Player1 won the game",
-            "10,8,Player1 won the game", "0,4,Player2 won the game", "1,4,Player2 won the game",
-            "3,5,Player2 won the game", "6,8,Player2 won the game", "9,11,Player2 won the game"})
+    @CsvSource({
+            "4,0,Player1 won the game",
+            "5,3,Player1 won the game",
+            "6,4,Player1 won the game",
+            "10,8,Player1 won the game",
+            "0,4,Player2 won the game",
+            "1,4,Player2 won the game",
+            "3,5,Player2 won the game",
+            "6,8,Player2 won the game",
+            "9,11,Player2 won the game"})
     @DisplayName("A game is Won by a player to have won at least four points in total and at least two points more than the opponent")
     public void whenAPlayerScoresMinimumFourPointsInTotalAndMinimumTwoPointsMoreThanTheOpponentThenGameIsWonByThatPlayer(int player1Points, int player2Points, String gameScore) {
         prepareAndAssertCalculateGameScore(player1Points, player2Points, gameScore);
@@ -112,7 +126,12 @@ public class TennisGameTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"4,3,Player1 has advantage", "5,4,Player1 has advantage", "7,6,Player1 has advantage", "3,4,Player2 has advantage", "9,10,Player2 has advantage"})
+    @CsvSource({
+            "4,3,Player1 has advantage",
+            "5,4,Player1 has advantage",
+            "7,6,Player1 has advantage",
+            "3,4,Player2 has advantage",
+            "9,10,Player2 has advantage"})
     @DisplayName("If at least three points have been scored by each side and a player has one more point than his opponent, the score of the game is “advantage” for the player in the lead.")
     public void whenAtLeastThreePointsScoredByEachPlayerAndPointDifferenceIsOneThenGameIsAdvantageForThePlayerInLead(int player1Points, int player2Points, String gameScore) {
         prepareAndAssertCalculateGameScore(player1Points, player2Points, gameScore);
