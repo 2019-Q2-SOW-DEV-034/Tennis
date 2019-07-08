@@ -137,6 +137,14 @@ public class TennisGameTest {
         prepareAndAssertCalculateGameScore(player1Points, player2Points, gameScore);
     }
 
+    @Test
+    @DisplayName("Tennis Game should have possibility to initialize the players with customer names")
+    public void whenTheGameStartsTennisGameShouldHavePossibilityToRegisterCustomNameForTwoPlayersTest() {
+        tennisGame = new TennisGame("Tom", "John");
+        assertEquals("Tom", tennisGame.getPlayerOne().getName());
+        assertEquals("John", tennisGame.getPlayerTwo().getName());
+    }
+
     private void prepareAndAssertCalculateGameScore(int player1Points, int player2Points, String gameScore) {
         updatePlayerScore(player1Points, player2Points);
 
