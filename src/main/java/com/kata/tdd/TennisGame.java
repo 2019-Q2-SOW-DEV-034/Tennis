@@ -67,8 +67,10 @@ public class TennisGame {
     protected void addCurrentServicePointToWinner(int winningIndicator) {
         if (1 == winningIndicator) {
             playerOne.incrementPlayerScore();
-        } else {
+        } else if (2 == winningIndicator) {
             playerTwo.incrementPlayerScore();
+        } else {
+            throw new IllegalArgumentException("Winning indicator should be either 1 or 2");
         }
     }
 }

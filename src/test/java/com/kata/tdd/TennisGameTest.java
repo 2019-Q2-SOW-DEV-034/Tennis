@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TennisGameTest {
 
@@ -166,6 +167,13 @@ public class TennisGameTest {
         tennisGame.addCurrentServicePointToWinner(2);
 
         assertEquals(expectedPlayerOnePoint, tennisGame.getPlayerTwo().getScoredPoint());
+    }
+
+    @Test
+    @DisplayName("If the winning indicator is other than one and two then throw IllegalArgumentException")
+    public void whenTheWinningIndicatorIsWrongThenThrowIllegalArgumentExceptionTest() {
+
+        assertThrows(IllegalArgumentException.class, () -> tennisGame.addCurrentServicePointToWinner(4));
     }
 
     private void prepareAndAssertCalculateGameScore(int player1Points, int player2Points, String gameScore) {
