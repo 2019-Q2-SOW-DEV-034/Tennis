@@ -177,7 +177,17 @@ public class TennisGameTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"0, 0, 1, Fifteen-Love"})
+    @CsvSource({
+            "0, 0, 1, Fifteen-Love",
+            "1, 2, 1, Thirty-All",
+            "2, 3, 1, Deuce",
+            "3, 3, 1, Player1 has advantage",
+            "4, 3, 1, Player1 won the game",
+            "2, 2, 2, Thirty-Forty",
+            "4, 3, 2, Deuce",
+            "4, 4, 2, Player2 has advantage",
+            "4, 5, 2, Player2 won the game"
+    })
     @DisplayName("Get Current Service Game score should add current service point to the winner based on the winning indicator and return the newly calculated game score")
     public void getCurrentServiceGameScoreShouldAddServicePointToWinnerAndReturnNewlyCalculatedGameScore(int player1Points, int player2Points, int winningIndicator, String expectedGameScore) {
         updatePlayerScore(player1Points, player2Points);
