@@ -26,8 +26,8 @@ public class TennisGame {
 
     protected String calculateGameScore() {
         if (playerOne.getScoredPoint() == playerTwo.getScoredPoint()) {
-            if (playerOne.getScoredPoint() >= 3) {
-                return "Deuce";
+            if (playerOne.getScoredPoint() >= MINIMUM_DEUCE_POINT) {
+                return DEUCE;
             } else {
                 return score[playerOne.getScoredPoint()] + HYPHEN_ALL;
             }
