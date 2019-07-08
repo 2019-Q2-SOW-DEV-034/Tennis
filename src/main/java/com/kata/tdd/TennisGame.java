@@ -12,8 +12,7 @@ public class TennisGame {
     private Player playerTwo;
 
     public TennisGame(){
-        playerOne = new Player(PLAYER_ONE_DEFAULT_NAME);
-        playerTwo = new Player(PLAYER_TWO_DEFAULT_NAME);
+        this(PLAYER_ONE_DEFAULT_NAME, PLAYER_TWO_DEFAULT_NAME);
     }
 
     public TennisGame(String playerOneName, String playerTwoName) {
