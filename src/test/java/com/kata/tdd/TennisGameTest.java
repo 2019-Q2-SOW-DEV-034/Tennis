@@ -103,7 +103,7 @@ public class TennisGameTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {3})
+    @ValueSource(ints = {3, 4, 5, 7, 8, 11})
     @DisplayName("If at least three points have been scored by each player, and the scores are equal, the score is Deuce")
     public void whenAtLeastThreePointsScoredByEachPlayerAndScoresAreEqualThenGameScoreShouldBeEqualToDeuce(int points) {
         updatePlayerScore(points, points);
