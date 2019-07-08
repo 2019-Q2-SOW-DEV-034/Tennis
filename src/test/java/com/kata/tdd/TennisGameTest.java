@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -99,6 +100,15 @@ public class TennisGameTest {
     @DisplayName("A game is Won by a player to have won at least four points in total and at least two points more than the opponent")
     public void whenAPlayerScoresMinimumFourPointsInTotalAndMinimumTwoPointsMoreThanTheOpponentThenGameIsWonByThatPlayer(int player1Points, int player2Points, String gameScore) {
         prepareAndAssertCalculateGameScore(player1Points, player2Points, gameScore);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {3})
+    @DisplayName("If at least three points have been scored by each player, and the scores are equal, the score is Deuce")
+    public void whenAtLeastThreePointsScoredByEachPlayerAndScoresAreEqualThenGameScoreShouldBeEqualToDeuce(int points) {
+        updatePlayerScore(points, points);
+
+        assertEquals("Deuce", tennisGame.calculateGameScore());
     }
 
     private void prepareAndAssertCalculateGameScore(int player1Points, int player2Points, String gameScore) {

@@ -26,7 +26,11 @@ public class TennisGame {
 
     protected String calculateGameScore() {
         if (playerOne.getScoredPoint() == playerTwo.getScoredPoint()) {
-            return score[playerOne.getScoredPoint()] + HYPHEN_ALL;
+            if (playerOne.getScoredPoint() >= 3) {
+                return "Deuce";
+            } else {
+                return score[playerOne.getScoredPoint()] + HYPHEN_ALL;
+            }
         } else if (isGameWonByAnyPlayer()){
             return getTopScorerName() + WON_THE_MATCH;
         } else {
