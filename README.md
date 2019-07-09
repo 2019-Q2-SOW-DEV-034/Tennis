@@ -11,7 +11,7 @@
 * Each game has only one set to decide the winner
 * Minimum and Maximum number of player is 2
 * Player one will always do the service, hence the game score will be always represented with respect to player1 i.e. player1 score - player2 score
-
+* Once game is over, User has to start next game from the beginning.
 
 ### Prerequisite
 ~~~
@@ -67,5 +67,5 @@ Git
 1. Open the command prompt / terminal and go to the directory where you have cloned the Tennis program (C:\Study\Workspace\TennisGame)
 2. Build the application 'mvn clean install'
 3. Run the application 'mvn exec:java'.
-4. Follow on the instructions on the screen to play the tennis game.
+4. Follow the instructions on the screen to play the tennis game.
 ~~~
