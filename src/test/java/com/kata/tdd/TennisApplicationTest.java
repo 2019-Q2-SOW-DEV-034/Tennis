@@ -50,4 +50,30 @@ public class TennisApplicationTest {
 
         assertEquals(expectedValueBuilder.toString(), outputStream.toString());
     }
+
+    @Test
+    @DisplayName("Tennis Application should allow user to play the tennis game and quit through the console")
+    public void tennisApplicationShouldAllowUserToTestTennisGameAndQuitViaConsole() {
+
+
+        final StringBuilder expectedValueBuilder = new StringBuilder("Welcome!! Are you ready to play Tennis! ")
+                .append(NEW_LINE).append("Please enter the player1 name").append(NEW_LINE)
+                .append("Please enter the player2 name").append(NEW_LINE)
+                .append("Lets start the game !!").append(NEW_LINE)
+                .append(WINNING_INDICATOR_MESSAGE)
+                .append("Exception:Winning indicator should be either 1 or 2").append(NEW_LINE)
+                .append("Game Over !!").append(NEW_LINE);
+
+        StringBuilder inputStreamBuilder = new StringBuilder(PLAYER_ONE_NAME).append(NEW_LINE)
+                .append(PLAYER_TWO_NAME).append(NEW_LINE)
+                .append(5).append(NEW_LINE);
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+        System.setIn(new ByteArrayInputStream(inputStreamBuilder.toString().getBytes()));
+
+        TennisApplication.main(new String[]{});
+
+        assertEquals(expectedValueBuilder.toString(), outputStream.toString());
+    }
 }
