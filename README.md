@@ -61,3 +61,11 @@ Git
 2. Run the PITest 'mvn clean test', the Mutation code coverage report will be generated at target/pit-reports/YYYYMMDDHHMI/*
 4. Open the target/pit-reports/yyyyMMddHHmm/index.html file, review the mutation coverage report
 ~~~
+
+##Build and run the application in cmd prompt
+~~~
+1. Open the command prompt / terminal and go to the directory where you have cloned the Tennis program (C:\Study\Workspace\TennisGame)
+2. Build the application 'mvn clean install'
+3. Run the application 'mvn exec:java'.
+4. Follow on the instructions on the screen to play the tennis game.
+~~~
